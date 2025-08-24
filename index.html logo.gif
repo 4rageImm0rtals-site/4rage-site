@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Immortals / 4RAGE — Clan</title>
+  <meta name="description" content="Официальная визитка клана Immortals / 4RAGE: Discord, YouTube, достижения, как вступить." />
+  <style>
+    :root {
+      --bg: #0a0d12;
+      --text: #e6f7ff;
+      --muted: #8aa3ad;
+      --neon1: #00f5ff;
+      --neon2: #ff00e6;
+      --accent: #00ffc6;
+    }
+    * { box-sizing: border-box }
+    html,body { height: 100% }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: var(--bg); overflow-x: hidden;
+    }
+    /* ==== Animated cyber grid background ==== */
+    .bg {
+      position: fixed; inset: 0; z-index: -2; background: radial-gradient(1200px 800px at 70% -10%, rgba(0,245,255,.18), transparent 60%), radial-gradient(800px 500px at 0% 80%, rgba(255,0,230,.12), transparent 60%), #05070a;
+    }
+    .scanlines::before {
+      content: ""; position: fixed; inset: -200vh; z-index: -1; background: repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 2px, transparent 2px 4px); animation: pan 12s linear infinite;
+      pointer-events: none; mix-blend-mode: overlay;
+    }
+    @keyframes pan { to { transform: translateY(50px) } }
+    /* ==== Layout ==== */
+    .container { width: min(1200px, 92vw); margin: 0 auto; padding: 24px; }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: linear-gradient(to right, rgba(10,13,18,.65), rgba(10,13,18,.25)); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 40; }
+    .nav { display: flex; gap: 16px; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); }
+    .brand h1 { margin: 0; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+    .badge { font-size: 11px; color: var(--bg); background: linear-gradient(90deg, var(--neon1), var(--neon2)); padding: 4px 8px; border-radius: 1000px; font-weight: 700; }
+    .nav a.btn { text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.18); color: var(--text); transition: .25s ease; }
+    .nav a.btn:hover { box-shadow: 0 0 24px rgba(0,245,255,.35), 0 0 32px rgba(255,0,230,.18) inset; transform: translateY(-1px); }
+
+    /* ==== HERO with animated emblem ==== */
+    .hero { padding: clamp(64px, 8vw, 120px) 0 48px; text-align: center; }
+    .logo-wrap { display: grid; place-items: center; margin-bottom: 22px; }
+    .neon-svg { width: min(420px, 70vw); filter: drop-shadow(0 0 8px var(--neon1)) drop-shadow(0 0 18px var(--neon2)); }
+    .glow { stroke: url(#grad); stroke-width: 2.2; fill: none; stroke-linejoin: round; stroke-linecap: round; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse {
+      0%,100% { filter: drop-shadow(0 0 6px var(--neon1)); opacity: .9 }
+      50%     { filter: drop-shadow(0 0 18px var(--neon2)); opacity: 1 }
+    }
+    .hero h2 { font-size: clamp(28px, 4vw, 44px); margin: 10px 0 8px; letter-spacing: .14em; text-transform: uppercase; }
+    .hero p { color: var(--muted); margin: 0 auto 22px; max-width: 720px; }
+    .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta a { text-decoration: none; padding: 12px 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,.16); font-weight: 700; letter-spacing: .04em; transition: .25s ease; }
+    .cta a.primary { background: linear-gradient(90deg, var(--neon1), var(--neon2)); color: #041014; }
+    .cta a.secondary { color: var(--text); }
+    .cta a:hover { transform: translateY(-2px); box-shadow: 0 0 22px rgba(0,245,255,.35); }
+
+    /* ==== Embedded emblem video (MP4/WebM/GIF) ==== */
+    .emblem { margin: 18px auto 0; width: min(360px, 85vw); border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 0 30px rgba(0,245,255,.12); }
+    .emblem video, .emblem img { display: block; width: 100%; height: auto; }
+
+    /* ==== Sections ==== */
+    section { padding: 56px 0; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.1); padding: 18px; border-radius: 16px; backdrop-filter: blur(6px); }
+    .stat { font-size: 28px; font-weight: 800; letter-spacing: .04em; }
+    .muted { color: var(--muted) }
+
+    footer { border-top: 1px solid rgba(255,255,255,.08); padding: 28px 0 40px; text-align: center; color: var(--muted); }
+
+    /* Small helper to hide emblem box if no source provided */
+    .emblem[data-empty="true"] { display: none }
+  </style>
+</head>
+<body class="scanlines">
+  <div class="bg"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="badge">4RAGE</span>
+        <h1>Immortals Clan</h1>
+      </a>
+      <nav class="cta">
+        <a class="btn" href="#about">О клане</a>
+        <a class="btn" href="#join">Как вступить</a>
+        <a class="btn" href="https://discord.gg/Fqp83HAP6H" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO with animated neon SVG title + embedded animated emblem below -->
+    <section class="hero container">
+      <div class="logo-wrap" aria-label="Анимированная эмблема (SVG)">
+        <!-- Animated neon SVG wordmark (editable text: 4RAGE) -->
+        <svg class="neon-svg" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" role="img">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="var(--neon1)"/>
+              <stop offset="100%" stop-color="var(--neon2)"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(20,130)">
+            <path class="glow" d="M0 -10 L40 -100 L80 -10 M60 -10 L100 -100 L140 -10"/>
+            <text x="180" y="-15" font-size="88" font-weight="900" letter-spacing="8" fill="none" stroke="url(#grad)" stroke-width="2.2" style="text-transform:uppercase">4RAGE</text>
+          </g>
+        </svg>
+      </div>
+      <h2>Сила в единстве</h2>
+      <p class="muted">Официальная страница клана Immortals / 4RAGE. Киберпанк‑стиль, неон и огонь. Присоединяйся к нашему дискорду и залетай в бой.</p>
+      <div class="cta" style="margin-bottom:14px">
+        <a class="primary" href="https://discord.gg/Fqp83HAP6H" target="_blank" rel="noopener">Присоединиться в Discord</a>
+        <a class="secondary" href="https://www.youtube.com/@HK_HYLIGAN" target="_blank" rel="noopener">Наш YouTube</a>
+      </div>
+
+      <!-- ===== EMBLEM VIDEO/GIF BLOCK =====
+        Как вставить свою анимированную эмблему:
+        1) Положи файл рядом с этим .html и назови, например, emblem.mp4 или emblem.webm или emblem.gif
+        2) Раскомментируй подходящий <source> ниже и укажи верное имя файла
+        Советы: webm/mp4 — лучшее качество; gif — проще, но может быть тяжелее.
+      -->
+      <div class="emblem" id="emblemBox" data-empty="false">
+        <video id="emblemVideo" playsinline muted autoplay loop preload="auto" poster="" aria-label="Анимированный логотип клана">
+          <!-- MP4 пример (замени имя файла на своё) -->
+          <source src="emblem.mp4" type="video/mp4" />
+          <!-- WebM пример (при наличии) -->
+          <!-- <source src="emblem.webm" type="video/webm" /> -->
+          <!-- Fallback GIF -->
+          <!-- <img src="emblem.gif" alt="Эмблема" /> -->
+        </video>
+      </div>
+      <!-- ===== /EMBLEM BLOCK ===== -->
+    </section>
+
+    <section id="about" class="container">
+      <h3 style="margin:0 0 16px; letter-spacing:.08em; text-transform:uppercase">О клане</h3>
+      <p class="muted" style="margin:0 0 16px">Создан 04.01.2025. Активный состав, дисциплина и общение в Discord. За полгода — сотни боёв и стабильный прогресс.</p>
+      <div class="cards" style="margin-top:12px">
+        <div class="card"><div class="stat">Укреп 8</div><div class="muted">уровень</div></div>
+        <div class="card"><div class="stat">2083</div><div class="muted">боёв в укрепах</div></div>
+        <div class="card"><div class="stat">≈400</div><div class="muted">боёв на ГК/манёврах</div></div>
+        <div class="card"><div class="stat">TOP‑95</div><div class="muted">позиции на 8 ур.</div></div>
+        <div class="card"><div class="stat">10800</div><div class="muted">личка клана (пик)</div></div>
+      </div>
+    </section>
+
+    <section id="join" class="container">
+      <h3 style="margin:0 0 16px; letter-spacing:.08em; text-transform:uppercase">Как вступить</h3>
+      <div class="cards">
+        <div class="card"><strong>Актив</strong><br><span class="muted">2–3 вечера в неделю</span></div>
+        <div class="card"><strong>Связь</strong><br><span class="muted">Discord + микрофон</span></div>
+        <div class="card"><strong>Опыт</strong><br><span class="muted">Адекватность и игра в команде</span></div>
+        <div class="card"><strong>Контент</strong><br><span class="muted">YouTube/Twitch приветствуются</span></div>
+      </div>
+      <div class="cta" style="margin-top:16px">
+        <a class="primary" href="https://discord.gg/Fqp83HAP6H" target="_blank" rel="noopener">Залететь в Discord</a>
+        <a class="secondary" href="https://www.youtube.com/@HK_HYLIGAN" target="_blank" rel="noopener">Смотреть YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Immortals / 4RAGE, 2025 • Связь: <a href="https://discord.gg/Fqp83HAP6H" target="_blank" rel="noopener" style="color:var(--text)">Discord</a>
+    </div>
+  </footer>
+
+  <script>
+    // Если видео не загрузилось (например, файл не найден) — скрыть блок эмблемы
+    (function(){
+      const v = document.getElementById('emblemVideo');
+      const box = document.getElementById('emblemBox');
+      if (!v) return;
+      v.addEventListener('error', ()=> box.setAttribute('data-empty','true'));
+    })();
+  </script>
+</body>
+</html>
